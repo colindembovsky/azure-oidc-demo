@@ -1,0 +1,39 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  dev:
+    name: Deploy to Dev
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1.4.0
+      name: Log in using OIDC
+      with:
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - name: 'Run az commands'
+      run: |
+        az account show
+        az group list
+        pwd
+
+  prod:
+    name: Deploy to Prod
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1.4.0
+      name: Log in using OIDC
+      with:
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - name: 'Run az commands'
+      run: |
+        az account show
+        az group list
+        pwd
