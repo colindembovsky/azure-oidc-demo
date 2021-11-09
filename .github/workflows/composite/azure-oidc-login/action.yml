@@ -15,6 +15,7 @@ runs:
   using: composite
   steps:
   - name: Installing CLI-beta for OpenID Connect
+    shell: bash
     run: |
       cd ../..
       CWD="$(pwd)"
