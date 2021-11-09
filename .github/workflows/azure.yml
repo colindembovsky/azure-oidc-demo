@@ -3,6 +3,9 @@ name: OIDC Demo
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+
 jobs:
   dev:
     name: Deploy to Dev
