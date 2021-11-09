@@ -16,9 +16,9 @@ jobs:
     - name: Azure Login using OIDC
       uses: ./.github/workflows/composite/azure-oidc-login
       with:
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+        client_id: ${{ secrets.AZURE_CLIENT_ID }}
+        subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: 'Run az commands'
       run: |
         az account show
@@ -34,9 +34,9 @@ jobs:
     - name: Azure Login using OIDC
       uses: ./.github/workflows/composite/azure-oidc-login
       with:
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+        client_id: ${{ secrets.AZURE_CLIENT_ID }}
+        subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: 'Run az commands'
       run: |
         az account show
@@ -52,9 +52,9 @@ jobs:
     - name: Azure Login using OIDC
       uses: ./.github/workflows/azure-oidc-login-steps.yml.yml
       with:
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        client-id: 84b86cb5-5fbd-4950-88fa-1ab04be41de5
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+        client_id: 84b86cb5-5fbd-4950-88fa-1ab04be41de5
+        subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     - name: 'Run az commands'
       run: |
         az account show
