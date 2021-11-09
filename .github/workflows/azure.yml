@@ -13,6 +13,18 @@ jobs:
     environment: dev
     steps:
     - uses: actions/checkout@v2
+    - name: Installing CLI-beta for OpenID Connect
+      run: |
+        cd ../..
+        CWD="$(pwd)"
+        python3 -m venv oidc-venv
+        . oidc-venv/bin/activate
+        echo "activated environment"
+        python3 -m pip install -q --upgrade pip
+        echo "started installing cli beta"
+        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
+        echo "***************installed cli beta*******************"
+        echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
     - uses: azure/login@v1.4.0
       name: Log in using OIDC
       with:
@@ -31,6 +43,18 @@ jobs:
     environment: prod
     steps:
     - uses: actions/checkout@v2
+    - name: Installing CLI-beta for OpenID Connect
+      run: |
+        cd ../..
+        CWD="$(pwd)"
+        python3 -m venv oidc-venv
+        . oidc-venv/bin/activate
+        echo "activated environment"
+        python3 -m pip install -q --upgrade pip
+        echo "started installing cli beta"
+        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
+        echo "***************installed cli beta*******************"
+        echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
     - uses: azure/login@v1.4.0
       name: Log in using OIDC
       with:
