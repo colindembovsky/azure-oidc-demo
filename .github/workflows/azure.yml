@@ -5,7 +5,7 @@ jobs:
   dev:
     name: Deploy to Dev
     runs-on: ubuntu-latest
-    environment: development
+    environment: dev
     steps:
     - uses: actions/checkout@v2
     - uses: azure/login@v1.4.0
@@ -23,7 +23,7 @@ jobs:
   prod:
     name: Deploy to Prod
     runs-on: ubuntu-latest
-    environment: production
+    environment: prod
     steps:
     - uses: actions/checkout@v2
     - uses: azure/login@v1.4.0
