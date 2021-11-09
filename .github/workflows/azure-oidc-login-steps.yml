@@ -1,0 +1,34 @@
+name: OIDC Azure Login
+
+inputs:
+  tenant_id:
+    description: Azure AAD tenant ID
+    require: true
+  subscription_id:
+    description: Azure subscription ID
+    require: true
+  client_id:
+    description: Azure client ID that has been federated to repo/env/branch/tag
+    require: true
+
+runs:
+  using: composite
+  steps:
+  - name: Installing CLI-beta for OpenID Connect
+    run: |
+      cd ../..
+      CWD="$(pwd)"
+      python3 -m venv oidc-venv
+      . oidc-venv/bin/activate
+      echo "activated environment"
+      python3 -m pip install -q --upgrade pip
+      echo "started installing cli beta"
+      pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
+      echo "***************installed cli beta*******************"
+      echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
+  - uses: azure/login@v1.4.0
+    name: Log in using OIDC
+    with:
+      tenant-id: ${{ inputs.tenant_id }}
+      client-id: ${{ inputs.client_id }}
+      subscription-id: ${{ inputs.subscription_id }}
