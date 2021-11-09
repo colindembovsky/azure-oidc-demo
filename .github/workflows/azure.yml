@@ -1,3 +1,5 @@
+name: OIDC Demo
+
 on:
   workflow_dispatch:
 
