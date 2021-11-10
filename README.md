@@ -2,6 +2,8 @@
 
 This repo has an Action that tests logging in to Azure [using OIDC](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
+Full write-up [here](https://colinsalmcorner.com/actions-authenticate-to-azure-without-a-secret/).
+
 For this demo to work, you need 2 SPNs in Azure and 2 environments. The jobs target `dev` and `prod` environments.
 
 ## Azure Configuration
