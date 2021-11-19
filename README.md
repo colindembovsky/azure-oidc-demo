@@ -6,6 +6,21 @@ Full write-up [here](https://colinsalmcorner.com/actions-authenticate-to-azure-w
 
 For this demo to work, you need 2 SPNs in Azure and 2 environments. The jobs target `dev` and `prod` environments.
 
+# Update: 11/18
+
+You no longer need the composite workflow, since you no longer have to install the `az cli` beta. You can just collapse to this:
+
+```yml
+  - uses: azure/login@v1
+    name: Log in using OIDC
+    with:
+      tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+      client-id: ${{ secrets.AZURE_CLIENT_ID }}
+      subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+```
+
+and you'd be good to go from there!
+
 ## Azure Configuration
 
 Steps:
