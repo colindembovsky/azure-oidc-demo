@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login using OIDC
-      uses: colindembovsky/login@master
+      uses: colindembovsky/login@oidc-creds
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: 'Run az commands'
@@ -30,7 +30,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login using OIDC
-      uses: colindembovsky/login@master
+      uses: colindembovsky/login@oidc-creds
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: 'Run az commands'
@@ -46,7 +46,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login using OIDC
-      uses: colindembovsky/login@master
+      uses: colindembovsky/login@oidc-creds
       with:
         tenant_id: ${{ secrets.AZURE_TENANT_ID }}
         client_id: 84b86cb5-5fbd-4950-88fa-1ab04be41de5
