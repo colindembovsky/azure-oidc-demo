@@ -16,9 +16,7 @@ jobs:
     - name: Azure Login using OIDC
       uses: ./.github/workflows/composite/azure-oidc-login
       with:
-        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-        client_id: ${{ secrets.AZURE_CLIENT_ID }}
-        subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: 'Run az commands'
       run: |
         az account show
@@ -34,9 +32,7 @@ jobs:
     - name: Azure Login using OIDC
       uses: ./.github/workflows/composite/azure-oidc-login
       with:
-        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-        client_id: ${{ secrets.AZURE_CLIENT_ID }}
-        subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: 'Run az commands'
       run: |
         az account show
